@@ -1,0 +1,42 @@
+<script v2 id="Microsoft_Omnichannel_LCWidget"
+  src="https://oc-cdn-public-eur.azureedge.net/livechatwidget/scripts/LiveChatBootstrapper.js" onerror="(function(el){el.parentNode.removeChild(el);var s=document.createElement('script');
+s.src='https://ocprodpubliceurgs.blob.core.windows.net/livechatwidget/scripts/LiveChatBootstrapper.js';
+s.setAttribute('id', 'Microsoft_Omnichannel_LCWidget');
+s.setAttribute('data-app-id', 'your-app-id');
+s.setAttribute('data-lcw-version', 'prod');s.setAttribute('data-org-id', 'your-org-id');
+s.setAttribute('data-org-url', 'https://m-your-org-id.eu.omnichannelengagementhub.com');
+document.body.appendChild(s);})(this);" data-app-id="your-app-id" data-lcw-version="prod" data-org-id="your-org-id"
+  data-org-url="https://m-your-org-id.eu.omnichannelengagementhub.com" data-hide-minimize-button="true"
+  data-enable-lcw-autofill="true" data-hide-chat-button="true" async></script>
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    function getQueryParams() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        conversationId: params.get("conversationId"),
+        agentId: params.get("agentId"),
+        email: params.get("email")
+      };
+    }
+
+    const context = getQueryParams();
+
+    window.addEventListener("lcw:ready", function () {
+      try {
+        console.log("Context Ready:", context);
+        Microsoft.Omnichannel.LiveChatWidget.SDK.startChat({
+          customContext: {
+            'EmailAddressContextVariable': { 'value': context.email, 'isDisplayable': true },
+            'AgentId': { 'value': context.agentId, 'isDisplayable': true },
+            'PreviousConversationId': { 'value': context.conversationId, 'isDisplayable': true },
+            'VideoCall': { 'value': true, 'isDisplayable': false }
+          }
+        });
+
+      } catch (error) {
+        console.error("Error starting chat with context:", error);
+      }
+    });
+  });
+</script>
