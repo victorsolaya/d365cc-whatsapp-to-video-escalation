@@ -171,6 +171,6 @@ Solutions Architect & Team Lead @ Axazure
 ### Coauthors
 
 - Paula Arce
-- Javier Carrera
+- Javier Gil
 
 ---
