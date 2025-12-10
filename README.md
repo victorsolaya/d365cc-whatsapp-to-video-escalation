@@ -168,4 +168,9 @@ A seamless *WhatsApp → Chat → Video* customer journey with zero manual steps
 **Victor Sanchez**  
 Solutions Architect & Team Lead @ Axazure
 
+### Coauthors
+
+- Paula Arce
+- Javier Carrera
+
 ---
